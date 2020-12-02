@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Secret} from './model/secret';
+import {HttpClient} from '@angular/common/http';
 import {CreateSecret} from './model/create-secret';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,8 @@ export class SecretService {
     return this.http.get<Secret[]>(this.secretUrl);
   }
 
-  public findById(id: string): Observable<Secret> {
-    return this.http.get<Secret>(`${this.secretUrl}/${id}`);
+  public save(secret: CreateSecret): Observable<any> {
+    return this.http.post<CreateSecret>(this.secretUrl, secret);
   }
 
-  public save(secret: CreateSecret): Observable<any>{
-    return this.http.post<Secret>(this.secretUrl, secret);
-  }
 }

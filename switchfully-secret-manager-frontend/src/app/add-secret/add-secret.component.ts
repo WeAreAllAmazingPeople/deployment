@@ -16,7 +16,7 @@ export class AddSecretComponent {
     private route: ActivatedRoute,
     private router: Router,
     private secretService: SecretService) {
-    this.secret = new CreateSecret();
+    this.secret = {secret: ''};
   }
 
   onSubmit(): void {

@@ -1,3 +1,3 @@
-export class CreateSecret {
+export interface CreateSecret {
   secret: string;
 }
